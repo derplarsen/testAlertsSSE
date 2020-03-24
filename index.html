@@ -11,42 +11,47 @@
 	<script>
   	$(document).ready(function(){
 
-					toastr.options = {
-						'closeButton': true,
-						'debug': false,
-						'newestOnTop': false,
-						'progressBar': true,
-						'positionClass': 'toast-top-right',
-						'preventDuplicates': false,
-						'showDuration': '1000',
-						'hideDuration': '1000',
-						'timeOut': '5000',
-						'extendedTimeOut': '1000',
-						'showEasing': 'swing',
-						'hideEasing': 'linear',
-						'showMethod': 'fadeIn',
-						'hideMethod': 'fadeOut',
-					}
-
-	      });
+		toastr.options = {
+			'closeButton': true,
+			'debug': false,
+			'newestOnTop': false,
+			'progressBar': true,
+			'positionClass': 'toast-top-right',
+			'preventDuplicates': false,
+			'showDuration': '1000',
+			'hideDuration': '1000',
+			'timeOut': '5000',
+			'extendedTimeOut': '1000',
+			'showEasing': 'swing',
+			'hideEasing': 'linear',
+			'showMethod': 'fadeIn',
+			'hideMethod': 'fadeOut',
+		}
+	});
 
 	</script>
 
 </head>
 
 <body>
-
+	Looks like it's working!<br><br>
+	Messages received: <div id="messagecount"></div>
 	<script>
-
-			var es = new EventSource('http://localhost:3344/stream');
-
-			es.onmessage = function (event) {
-					toastr.info(event.data);
-					console.log(event);
-			};
+		var es = new EventSource('http://localhost:3344/stream');
+		var msgCount=0;
+		console.log('msgCount: ', msgCount);
+		$('#messagecount').text(msgCount);
+		es.onmessage = function (event) {
+			msgCount=msgCount+1;
+			console.log('inside msg count: ',msgCount)
+			toastr.info(event.data);
+			console.log(event);
+			$('#messagecount').text(msgCount);
+		};
 
 	</script>
 
 </body>
 
 </html>
+
