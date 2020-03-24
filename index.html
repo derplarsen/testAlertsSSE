@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>KSQL Vis Example</title>
+
+	<script src="./dist/jquery.min.js"></script>
+	<script src="./dist/toastr.min.js"></script>
+	<link rel="stylesheet" href="./dist/toastr.css">
+
+	<script>
+  	$(document).ready(function(){
+
+					toastr.options = {
+						'closeButton': true,
+						'debug': false,
+						'newestOnTop': false,
+						'progressBar': true,
+						'positionClass': 'toast-top-right',
+						'preventDuplicates': false,
+						'showDuration': '1000',
+						'hideDuration': '1000',
+						'timeOut': '5000',
+						'extendedTimeOut': '1000',
+						'showEasing': 'swing',
+						'hideEasing': 'linear',
+						'showMethod': 'fadeIn',
+						'hideMethod': 'fadeOut',
+					}
+
+	      });
+
+	</script>
+
+</head>
+
+<body>
+
+	<script>
+
+			var es = new EventSource('http://localhost:3344/stream');
+
+			es.onmessage = function (event) {
+					toastr.info(event.data);
+					console.log(event);
+			};
+
+	</script>
+
+</body>
+
+</html>

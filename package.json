@@ -1,0 +1,33 @@
+{
+  "name": "alertme-httpsink",
+  "version": "0.0.2",
+  "description": "Received data via HTTP and push as an alert",
+  "main": "alertSSE.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node alertSSE.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/derplarsen/testAlertsSSE.git"
+  },
+  "files":[
+    "dist",
+    "index.html",
+    "alertSSE.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "express": "latest",
+    "events": "latest",
+    "body-parser": "latest",
+    "cors": "latest",
+    "express-sse": "^0.5.1"
+  },
+  "author": "Chris Larsen, Confluent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/derplarsen/testAlertsSSE/issues"
+  },
+  "homepage": "https://github.com/derplarsen/testAlertsSSE"
+}
