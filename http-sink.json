@@ -1,7 +1,7 @@
 {
   "name": "HttpSink",
   "config": {
-    "topics": "TRUCK_1_SENSORS",
+    "topics": "testAlertsSSE",
     "tasks.max": "1",
     "connector.class": "io.confluent.connect.http.HttpSinkConnector",
     "http.api.url": "http://localhost:3344/receiveData",
